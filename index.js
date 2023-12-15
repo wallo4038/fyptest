@@ -3,6 +3,7 @@ const express = require("express");
 const DB = require("./mongodb");
 const userRegister = require("./userRegister");
 const driverRegister = require("./driverRegister");
+const companyRegister = require("./companyRegister");
 const driverOnline = require("./driverOnline");
 const driverActivity = require("./driverActivity");
 const jwt = require("jsonwebtoken");
