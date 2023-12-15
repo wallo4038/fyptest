@@ -100,6 +100,21 @@ DB();
 app.use(express.json());
 app.use(cors());
 
+
+
+///////////////// Comp apis //////////////////////////
+app.post("/company/create", async (req, resp) => {
+  let data = new userRegister(req.body);
+  let email = data.email;
+  let findEmail = await companyRegister.findOne({ email });
+  if (findEmail) {
+    console.log("Email already exists");
+    return resp.send("Email already exists");
+  }
+
+
+
+
 ///////////////// user apis //////////////////////////
 app.post("/create", async (req, resp) => {
   let data = new userRegister(req.body);
