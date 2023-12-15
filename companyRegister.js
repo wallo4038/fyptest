@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userRegisterSchema = new mongoose.Schema({
+const companyRegisterSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
@@ -16,6 +16,6 @@ const userRegisterSchema = new mongoose.Schema({
   },
 });
 
-const userRegister = mongoose.model("CompanyRegister", userRegisterSchema);
+const companyRegister = mongoose.model("CompanyRegister", companyRegisterSchema);
 
-module.exports = userRegister;
+module.exports = companyRegister;
