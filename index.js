@@ -104,7 +104,7 @@ app.use(cors());
 
 ///////////////// Comp apis //////////////////////////
 app.post("/company/create", async (req, resp) => {
-  let data = new userRegister(req.body);
+  let data = new companyRegister(req.body);
   let email = data.email;
   let findEmail = await companyRegister.findOne({ email });
   if (findEmail) {
