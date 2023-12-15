@@ -112,7 +112,27 @@ app.post("/company/create", async (req, resp) => {
     return resp.send("Email already exists");
   }
 
+  const token = jwt.sign({ data }, secretKey, { expiresIn: "10000s" });
+  data.token = token;
+  console.log("jwt =>", data);
+  const result = await data.save();
+  return resp.send(result);
+});
 
+app.get("/company/login", async (req, resp) => {
+  const { email, password } = req.query;
+  console.log({ email, password });
+  let data = await companyRegister.findOne({ email });
+  if (data == null) {
+    resp.send("company Email does not exist");
+  } else {
+    if (password != data.password) {
+      resp.send("Password does not match");
+    } else {
+      resp.send(data);
+    }
+  }
+});
 
 
 ///////////////// user apis //////////////////////////
