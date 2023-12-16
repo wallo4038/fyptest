@@ -17,4 +17,4 @@ const companyRegisterSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('companyregisters', userRegisterSchema);
+module.exports = mongoose.model('companyregisters',companyRegisterSchema);
