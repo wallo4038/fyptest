@@ -135,6 +135,16 @@ app.get("/company/login", async (req, resp) => {
   }
 });
 
+app.get('/driver/activity/all', async (req, res) => {
+  try {
+    const driverActivities = await driverActivity.find();
+    res.json(driverActivities);
+  } catch (error) {
+    console.error('Error fetching driver activities:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 ///////////////// user apis //////////////////////////
 app.post("/create", async (req, resp) => {
